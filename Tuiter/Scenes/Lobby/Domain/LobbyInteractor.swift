@@ -24,7 +24,7 @@ final class LobbyInteractor {
 extension LobbyInteractor: LobbyBusinessLogic {
     func verifyAuthentication() {
         authWorker.isAuthenticated() ?
-            presenter.navigationToAuth() :
-            presenter.navigationToMain()
+            presenter.navigationToMain() :
+            presenter.navigationToAuth()
     }
 }

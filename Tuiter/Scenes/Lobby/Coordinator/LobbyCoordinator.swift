@@ -37,7 +37,7 @@ final class LobbyCoordinator: RootCoordinator {
 extension LobbyCoordinator: LobbyNavigationDelegate {
     func navigateToAuth() {
         guard let currentViewController = currentViewController as? UINavigationController else { return }
-        let coordinator = MainCoordinator(presentingViewController: currentViewController)
+        let coordinator = AuthCoordinator(presentingViewController: currentViewController)
         nextCoordinator = coordinator
         nextCoordinator?.start()
     }
