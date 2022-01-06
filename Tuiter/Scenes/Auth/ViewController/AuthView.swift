@@ -30,12 +30,13 @@ class AuthView: UIView {
     
     private let googleButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Continue with Google", for: .normal)
+        button.setTitle("  Continue with Google", for: .normal)
         button.backgroundColor = .white
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.setHeight(50)
         button.layer.cornerRadius = 25
+        button.setImage(UIImage(named: "GoogleIcon"), for: .normal)
         return button
     }()
     
