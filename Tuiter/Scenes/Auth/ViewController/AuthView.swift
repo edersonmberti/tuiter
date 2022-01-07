@@ -10,15 +10,7 @@ import UIKit
 class AuthView: UIView {
     
     weak var viewControllerDelegate: AuthViewToViewControllerDelegate?
-    
-    private let iconHeaderImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "TwitterIcon")?.withRenderingMode(.alwaysTemplate)
-        imageView.tintColor = UIColor(named: "Primary")!
-        return imageView
-    }()
-    
+        
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "See what's\nhappening in the\nworld right now."
@@ -95,9 +87,7 @@ class AuthView: UIView {
         attributedTitle.append(NSAttributedString(string: ", and ", attributes: defaultAttributes))
         attributedTitle.append(NSAttributedString(string: "Cookie Use", attributes: coloredAttributes))
         attributedTitle.append(NSAttributedString(string: ".", attributes: defaultAttributes))
-        
         button.setAttributedTitle(attributedTitle, for: .normal)
-        
         return button
     }()
     
@@ -124,7 +114,6 @@ class AuthView: UIView {
 
 extension AuthView: ViewCoding {
     func buildViewHierarchy() {
-        addSubview(iconHeaderImageView)
         addSubview(descriptionLabel)
         addSubview(googleButton)
         addSubview(appleButton)
@@ -136,11 +125,7 @@ extension AuthView: ViewCoding {
     }
     
     func setupConstraints() {
-        iconHeaderImageView.setDimensions(height: 32, width: 32)
-        iconHeaderImageView.centerX(inView: self)
-        iconHeaderImageView.anchor(top: safeAreaLayoutGuide.topAnchor, paddingTop: 4)
-        
-        descriptionLabel.anchor(top: iconHeaderImageView.bottomAnchor, left: safeAreaLayoutGuide.leftAnchor, bottom: googleButton.topAnchor, paddingTop: 40, paddingLeft: 24)
+        descriptionLabel.anchor(top: safeAreaLayoutGuide.topAnchor, left: safeAreaLayoutGuide.leftAnchor, bottom: googleButton.topAnchor, paddingTop: 40, paddingLeft: 24)
         
         googleButton.anchor(left: safeAreaLayoutGuide.leftAnchor, bottom: appleButton.topAnchor, right: safeAreaLayoutGuide.rightAnchor, paddingTop: 60, paddingLeft: 24, paddingBottom: 12, paddingRight: 24)
         

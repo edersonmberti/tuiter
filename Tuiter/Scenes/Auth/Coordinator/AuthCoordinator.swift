@@ -23,6 +23,10 @@ final class AuthCoordinator: PushedCoordinator {
     func makeViewController() -> UIViewController {
         return AuthViewController()
     }
+    
+    func toUpdateIsNavigationBarHidden() -> Bool? {
+        false
+    }
 }
 
 extension AuthCoordinator: AuthNavigationDelegate {

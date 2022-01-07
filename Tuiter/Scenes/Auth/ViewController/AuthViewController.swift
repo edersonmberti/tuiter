@@ -24,10 +24,23 @@ final class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
     }
     
     override func loadView() {
         view = authView
+    }
+    
+    private func setupNavigationBar() {
+        let image = UIImage(named: "TwitterIcon")?.withRenderingMode(.alwaysTemplate)
+        let titleImageView = UIImageView(image: image)
+        titleImageView.tintColor = UIColor(named: "Primary")!
+        titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        titleImageView.contentMode = .scaleAspectFit
+        navigationController?.navigationBar.barTintColor = .black
+        navigationController?.navigationBar.isTranslucent = false
+        navigationItem.hidesBackButton = true
+        navigationItem.titleView = titleImageView
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,4 +49,3 @@ final class AuthViewController: UIViewController {
 }
 
 extension LobbyViewController: AuthViewToViewControllerDelegate {}
-

@@ -15,6 +15,7 @@ class LobbyView: UIView {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.image = #imageLiteral(resourceName: "TwitterIconWhite")
+        imageView.tintColor = .white
         return imageView
     }()
     
